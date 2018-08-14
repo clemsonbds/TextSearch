@@ -1,5 +1,5 @@
 ﻿// The term dictionary changes from adding new documents and removing documents
-IMPORT TextSearch2.Common;
+IMPORT TextSearch.Common;
 DictEntry     := Common.Layouts.TermDictionaryEntry;
 TermPosting   := Common.layouts.TermPosting;
 

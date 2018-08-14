@@ -1,7 +1,7 @@
 ﻿//Interface for keywording routine.  Provides normal form or forms.
 //
-IMPORT TextSearch2.Common.Types;
-IMPORT TextSearch2.Common.Layouts;
+IMPORT TextSearch.Common.Types;
+IMPORT TextSearch.Common.Layouts;
 TermString    := Types.TermString;
 EquivTerm     := Layouts.EquivTerm;//record
 Version       := Types.Version;

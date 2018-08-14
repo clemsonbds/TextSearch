@@ -1,4 +1,4 @@
-﻿IMPORT TextSearch2.Common;
+﻿IMPORT TextSearch.Common;
 //Creates file names.  The names are both the names of the individual
 //logical files and the container names used as aliases for a group
 //of file instances.

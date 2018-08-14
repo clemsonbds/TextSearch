@@ -35,45 +35,24 @@ instance := 'initial2';
 
 ds0 := DATASET(inputName, Work1, XML('/DOC', NOROOT));
 inDocs := PROJECT(ds0, cvt(LEFT));
-OUTPUT(ENTH(inDocs, 20), NAMED('Sample_20'));//will print only 20 records 
+OUTPUT(ENTH(inDocs, 20), NAMED('Sample_20'));
 
 info := Common.FileName_Info_Instance(stem, instance);
 
-///////////////////////////////////
+
 expr:=U'[a-zA-Z][.][a-zA-Z]*[.][a-zA-Z]*[.]*[a-zA-Z]*';
 
 
 cont:= RECORD
  string term;
- //inDocs.init_w_pun;
-//set of  string x;
 END;;
 Inverted.Layouts.DocumentIngest filter(Inverted.Layouts.DocumentIngest doc) := TRANSFORM
-//init:=REGEXFINDSET( expr,(string)doc.content);
-//SELF.content:=doc.content;
-//SELF.init:=REGEXREPLACE( expr,doc.content,STD.Uni.FilterOut(doc.content, '.'));
-SELF.init:=REGEXREPLACE( expr,doc.content,STD.Uni.FilterOut(doc.init, '.'));//+REGEXFINDSET(expr,doc.content);
+SELF.init:=REGEXREPLACE( expr,doc.content,STD.Uni.FilterOut(doc.init, '.'));
 
-
-//SELF.init_w_pun:=STD.Str.FilterOut((string)SELF.init, '.');
-//self.init:=STD.Str.FilterOut(REGEXFINDSET( expr,(string)doc.content), '.');
-//to change the field must use self.field
-//add new column in data set and search in both 
-//output(init);
 SELF := doc;
 END;
 s:= PROJECT(inDocs, filter(LEFT));
-OUTPUT(ENTH(s, 20), NAMED('Sample_200'));//will print only 20 records 
-
-//output(s);
-//output(REGEXFINDSET(expr,inDocs[1].content));
-
-////////////////////////////////////
-
-
-
-
-
+OUTPUT(ENTH(s, 20), NAMED('Sample_200'));
 output(s[1].init,NAMED('Sin'));
 output(inDocs[1].content,NAMED('Con'));
 
@@ -89,38 +68,6 @@ OUTPUT(p1,,'~ONLINE::Farah::OUT::Solution2',OVERWRITE);
 OUTPUT(rawPostings,,'~ONLINE::Farah::OUT::Solution3',OVERWRITE);
 
 OUTPUT(enumDocs,,'~ONLINE::Farah::OUT::Solution4',OVERWRITE);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
- 
-
-
-
-
-
-
-
-
 
 OUTPUT(CHOOSEN(rawPostings,300), ALL, NAMED('First_300'));
 selPostings := rawPostings(id=1 AND (start<100 OR start>3400));

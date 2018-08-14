@@ -1,8 +1,8 @@
-﻿IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Common.Types;
-IMPORT TextSearch2.Common.Layouts;
-IMPORT TextSearch2.Inverted;
-IMPORT TextSearch2.Inverted.Layouts AS Inv_layouts;
+﻿IMPORT TextSearch.Common;
+IMPORT TextSearch.Common.Types;
+IMPORT TextSearch.Common.Layouts;
+IMPORT TextSearch.Inverted;
+IMPORT TextSearch.Inverted.Layouts AS Inv_layouts;
 
 EXPORT Base_Data(Common.FileName_Info info,
                  Common.IKeywording kwm,

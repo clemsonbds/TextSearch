@@ -1,7 +1,7 @@
 ﻿// Generate the Phrase entries from the raw postings
-IMPORT TextSearch2.Inverted;
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Common.Constants;
+IMPORT TextSearch.Inverted;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Common.Constants;
 Posting         := Common.Layouts.TermPosting;
 PhrasePosting   := Common.Layouts.PhrasePosting;
 DataType        := Common.Types.DataType;

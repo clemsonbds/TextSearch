@@ -1,6 +1,6 @@
 ﻿//Layouts for search.
-IMPORT TextSearch2.Common.Types;
-IMPORT TextSearch2.Inverted.Layouts AS InvertedLayouts;
+IMPORT TextSearch.Common.Types;
+IMPORT TextSearch.Inverted.Layouts AS InvertedLayouts;
 EXPORT Layouts := MODULE
   EXPORT DocIndex := RECORD(InvertedLayouts.Document-content)//I think here error -content what is?
     Types.KWP                 keywords;

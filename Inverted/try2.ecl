@@ -8,11 +8,12 @@ IMPORT TextSearch.Common;
 IMPORT STD;
 IMPORT TextSearch.Inverted.Layouts;
 
+#option('outputLimit',100);
 
 
 
 prefix := '~thor::jdh::';
-inputName := prefix + 'corrected_lda_ap_txtt_xml';
+inputName := prefix + 'corrected_lda_ap_txtt_xml';  
 
 Work1 := RECORD
   UNICODE doc_number{XPATH('/DOC/DOCNO')};
