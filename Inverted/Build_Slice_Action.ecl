@@ -1,7 +1,7 @@
 ﻿// The action for building a slice, given the name of the Ingest file, and the
 //prefix and instance for the file names.
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Inverted;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Inverted;
 Ingest := Inverted.Layouts.DocumentIngest;
 
 EXPORT Build_Slice_Action(STRING ingestName, STRING prfx, STRING inst) := FUNCTION

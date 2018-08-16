@@ -1,5 +1,5 @@
 ﻿//Instance of the FileName_Info block.  Used to unify the names used by TextSearch.
-IMPORT TextSearch2.Common;
+IMPORT TextSearch.Common;
 IMPORT STD.Str;
 Info := Common.FileName_Info;
 EXPORT FileName_Info_Instance(STRING aPre, STRING aInst) := MODULE(Info)//mean this module will have all field in FileName_Info

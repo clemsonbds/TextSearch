@@ -1,6 +1,6 @@
-﻿IMPORT TextSearch2.Common.Layouts;
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Common.Types;
+﻿IMPORT TextSearch.Common.Layouts;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Common.Types;
 
 FileName_Info := Common.FileName_Info;
 Instance := Common.FileName_Info_Instance;

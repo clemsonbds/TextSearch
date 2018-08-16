@@ -1,6 +1,6 @@
 ﻿// Make Document Index entry from postings and Document heading data.
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Inverted;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Inverted;
 Layouts     := Common.Layouts;
 InvLayouts  := Inverted.Layouts;
 

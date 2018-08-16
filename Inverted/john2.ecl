@@ -1,5 +1,4 @@
-﻿//EXPORT john2 := 'todo';
-IMPORT TextSearch.Inverted;
+﻿IMPORT TextSearch.Inverted;
 IMPORT TextSearch.Common;
 Import STD;
 
@@ -29,24 +28,6 @@ END;
 
 ds0 := DATASET(inputName, Work1, XML('/DOC', NOROOT));
 inDocs := PROJECT(ds0, cvt(LEFT));
-//OUTPUT(ENTH(inDocs, 20), NAMED('Sample_20'));//will print only 20 records 
-
-//info := Common.FileName_Info_Instance(stem, instance);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//inDocs := DATASET(inputName, Inverted.Layouts.DocumentIngest, THOR);
 
 Work2 := RECORD
   Common.Types.DocIdentifier doc_ident;

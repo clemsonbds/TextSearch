@@ -1,4 +1,4 @@
-﻿IMPORT TextSearch2.Common.Types;
+﻿IMPORT TextSearch.Common.Types;
 
 EXPORT Layouts := MODULE
   // Document from outside source
@@ -36,6 +36,5 @@ EXPORT Layouts := MODULE
     Types.TermString          tagValue;
     Types.PathString          pathString;
     Types.TermString          parentName;
-	
    END;
 END;

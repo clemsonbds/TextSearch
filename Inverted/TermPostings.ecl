@@ -1,6 +1,6 @@
 ﻿//Generate the term postings from raw
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Inverted;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Inverted;
 IKeyWording  := Common.IKeywording;
 Raw := Inverted.Layouts.RawPosting;
 Term := Common.Layouts.TermPosting;

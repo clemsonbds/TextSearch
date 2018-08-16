@@ -1,6 +1,6 @@
-﻿IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Inverted;
-IMPORT TextSearch2.Inverted.Layouts;
+﻿IMPORT TextSearch.Common;
+IMPORT TextSearch.Inverted;
+IMPORT TextSearch.Inverted.Layouts;
 IMPORT Std.system.Thorlib;
 
 EXPORT DATASET(Layouts.Document)

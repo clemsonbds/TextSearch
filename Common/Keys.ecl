@@ -1,4 +1,4 @@
-﻿IMPORT TextSearch2.Common;
+﻿IMPORT TextSearch.Common;
 
 // Aliases
 FileName_Info       := Common.FileName_Info;

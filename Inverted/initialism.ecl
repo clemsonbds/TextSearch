@@ -1,10 +1,11 @@
-﻿
+﻿ 
 IMPORT TextSearch2.Inverted;
 IMPORT TextSearch2.Common;
 IMPORT STD;
 IMPORT TextSearch2.Inverted.Layouts;
 
 
+#option('outputLimit',100);
 
 
 prefix := '~thor::jdh::';
@@ -46,11 +47,11 @@ expr2:='[a-zA-Z][.][a-zA-Z][.]*[a-zA-Z]*[.]*[a-zA-Z]*';
 
 
  
-enumDocs    := Inverted.EnumeratedDocs(info,  inDocs);
+enumDocs:= Inverted.EnumeratedDocs(info,  inDocs);
 p1 := Inverted.ParsedText(enumDocs);
 rawPostings := Inverted.RawPostings(enumDocs);
 
-OUTPUT(rawPostings,,'~ONLINE::Farah::OUT::Solution1',OVERWRITE);
+OUTPUT(rawPostings);
 
 
 ValRec := RECORD
@@ -81,61 +82,27 @@ OutRec := RECORD
 
 END;
 
+
+
 res:=NORMALIZE(NestedDS,COUNT(LEFT.Values),
           TRANSFORM(OutRec,
                     SELF.val := LEFT.Values[COUNTER].val,Self.term:=LEFT.Values[COUNTER].val,SELF.len:=length(LEFT.Values[COUNTER].val),SELF.kwp:=LEFT.kwp+COUNTER,SELF.keywords:=if(length(LEFT.Values[COUNTER].val)=1,1,LEFT.keywords)
-										,SELF.lentext:=length(LEFT.Values[COUNTER].val),SELF.typterm:=if(length(LEFT.Values[COUNTER].val)=1,1,LEFT.typterm);
+										,SELF.lentext:=length(LEFT.Values[COUNTER].val),SELF.typterm:=if(length(LEFT.Values[COUNTER].val)=1,1,LEFT.typterm)/*,SELF.lp:=if(LEFT.lp=0,,LEFT.lp)*/;
                     SELF := LEFT,
 										 ));
 										
 output(res);
 
 
-//ds := DATASET([{'thee is anew A.B.C and V.R'}], {STRING100 line}); 
-//PATTERN expr :=PATTERN(U'[a-zA-Z][.][a-zA-Z]*[.][a-zA-Z]*[.]*[a-zA-Z]*');
 PATTERN expr3 :=PATTERN('[a-zA-Z][.][a-zA-Z]*[.][a-zA-Z]*[.]*[a-zA-Z]*');
 PATTERN expr4 :=PATTERN('[a-zA-Z][.][a-zA-Z]*');
 PATTERN expr5 :=PATTERN('[a-zA-Z]+');
 
-TOKEN JustAWord := expr3/* or expr4 or*/ expr5;
+TOKEN JustAWord := expr3 expr5;
 RULE NounPhraseComp1   := JustAWord ;
 ps1 := { 
  
 out1 := MATCHTEXT(NounPhraseComp1) }; 
 p14 := PARSE(res, val, NounPhraseComp1, ps1, BEST,MANY,NOCASE); 
-output(p14,NAMED('two'));	
-//SetStrVals  := REGEXFINDSET(expr2,(STRING)rawPostings[1].term)+Std.Str.SplitWords((STRING)rawPostings[1].term,'.');	
-//output(SetStrVals);
-/*
-DNrecss := RECORD
-	RawPostings ;
-  DATASET(ValRec) Values;
-END;
-DNrecss filter2(rawPostings L) := TRANSFORM
-SetStrVals  := REGEXFINDSET(expr2,(STRING)L.term)+Std.Str.SplitWords((STRING)L.term,'.');
-	 	//SetStrVals  := REGEXFINDSET(expr2,(STRING)L.term)+Std.Str.SplitWords((STRING)L.term[SpacePos+1..],'.');
-
-	//r:=(STD.Str.FilterOut((STRING)L.term,'.'));
-	
- 	//SetStrVals  := REGEXFINDSET(expr2,(STRING)L.term)+Std.Str.SplitWords((STRING)L.term[SpacePos+1..],'.')+r;
-
-
-   
-//PROJECT(ValuesDS, //here parse
-        ValuesDS    := DATASET(SetStrVals,{STRING StrVal});
-                  // TRANSFORM(ValRec,
-  SELF.Values := PARSE(ValuesDS, TRANSFORM(ValRec,SELF.val := (unicode)Left.StrVal), NounPhraseComp1, ps1, BEST,MANY,NOCASE);
-                                 
-															  
-                                
-																//SELF.Values := PROJECT(ValuesDS,
-                         //TRANSFORM(ValRec,
-                                  // SELF.val := (unicode)Left.StrVal));
-															 
-Self:=l;
-END;
-
-s := PROJECT(rawPostings,filter2(LEFT));   
-s;
-
-*/
+output(p14,NAMED('Result_4'));	
+ 

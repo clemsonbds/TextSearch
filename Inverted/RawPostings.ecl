@@ -1,8 +1,8 @@
 ﻿//Convert raw content into posting records
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Common.Types;
-IMPORT TextSearch2.Inverted;
-IMPORT TextSearch2.Inverted.Layouts;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Common.Types;
+IMPORT TextSearch.Inverted;
+IMPORT TextSearch.Inverted.Layouts;
 IMPORT Std;
 // Alias entries
 FileName_Info := Common.FileName_Info;
