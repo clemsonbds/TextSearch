@@ -3,9 +3,9 @@ IMPORT TextSearch2.Inverted;
 IMPORT TextSearch2.Common;
 IMPORT STD;
 IMPORT TextSearch2.Inverted.Layouts;
+Import python;
 
-
-
+#option('outputLimit',100);
 
 prefix := '~thor::jdh::';
 inputName := prefix + 'corrected_lda_ap_txtt_xml';
@@ -45,10 +45,6 @@ p1 := Inverted.ParsedText(enumDocs);
 rawPostings := Inverted.RawPostings(enumDocs);
 
 OUTPUT(rawPostings,,'~ONLINE::Farah::OUT::Solution1',OVERWRITE);
-
-
-
-
 
 
 rec := RECORD
@@ -119,8 +115,7 @@ DsDCT := DICTIONARY(DS,{code => DS});
 DsDCT2 := DICTIONARY(DS,{state => DS});
 
 
-OUTPUT(rawPostings[0].term IN DsDCT2); //true
- //if term in DsDCT or term in DsDCT2 return term 
+OUTPUT(rawPostings[0].term IN DsDCT2); 
 
 cont:= RECORD
  
@@ -129,9 +124,27 @@ cont:= RECORD
 END;;
 cont filter(Inverted.Layouts.RawPosting doc) := TRANSFORM
 
-SELF.term:=if(doc.term IN DsDCT or doc.term IN DsDCT2,doc.term,'false');;
+SELF.term:=if(doc.term IN DsDCT or doc.term IN DsDCT2,doc.term,'');;
 
 SELF := doc;
 END;
 s:= PROJECT(rawPostings, filter(LEFT));
 output(s);
+
+
+ValRec := RECORD
+  unicode val;
+END;   
+DNrec := RECORD
+	RawPostings ;
+	 
+END;
+
+DNrec filter3(rawPostings L) := TRANSFORM
+	unicode t:=L.term;
+	SELF.term:=if(L.term IN DsDCT or L.term IN DsDCT2,t,L.term);;
+  SELF:=l;
+
+END;
+NestedDS := PROJECT(rawPostings,filter3(LEFT));  
+output(NestedDS)

@@ -1,7 +1,7 @@
 ﻿// Parse contents of the document
-IMPORT TextSearch2;
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Inverted.Layouts;
+IMPORT TextSearch;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Inverted.Layouts;
 IMPORT STD;
 Document := Layouts.Document;
 RawPosting := Layouts.RawPosting;
@@ -38,15 +38,9 @@ EXPORT DATASET(RawPosting) ParsedText(DATASET(Document) docsInput) := FUNCTION
   PATTERN EmptyEnd      := REPEAT(AttrListItem) OPT(Spaces) U'/>';
   PATTERN XMLElement    := U'<' XMLName BEFORE ContainerEnd;
   PATTERN XMLEmpty      := U'<' XMLName BEFORE EmptyEnd;
-	PATTERN expr2 :=PATTERN(U'[a-zA-Z]+[.][a-zA-Z]+[.][a-zA-Z]*[.]*[a-zA-Z]*');//new addition
-	PATTERN expr3 :=PATTERN(U'[a-zA-Z]+[.][a-zA-Z]+');//new addition
-//Pattern init  :=VALIDATE(PATTERN('[A-Za-z]+'), MATCHTEXT != '.');
-	//PATTERN upper :=PATTERN(U'[A-Z]+');
-	//PATTERN lower :=PATTERN(U'[a-z]+');
-	//PATTERN mixed :=PATTERN(U'[A-Za-z]+');
-	//PATTERN TitleCase :=PATTERN(U'[A-Z][a-z]*');
-	//Pattern NoLetters:= PATTERN (U'[^a-zA-Z\' \']');
-  
+	PATTERN expr2 :=PATTERN(U'[a-zA-Z]+[.][a-zA-Z]+[.][a-zA-Z]*[.]*[a-zA-Z]*'); 
+	PATTERN expr3 :=PATTERN(U'[a-zA-Z]+[.][a-zA-Z]+'); 
+ 
 
 
  
@@ -57,14 +51,7 @@ EXPORT DATASET(RawPosting) ParsedText(DATASET(Document) docsInput) := FUNCTION
 
 
  
-//rule r :=   expr2 ws or alpha;
-
  
-
-//ps1 := { 
-
-//out1 := MATCHTEXT(r) }; 
-
  
 
 

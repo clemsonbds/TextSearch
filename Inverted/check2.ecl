@@ -1,6 +1,7 @@
 ﻿IMPORT TextSearch.Inverted;
 IMPORT TextSearch.Common;
 IMPORT STD;
+#option('outputLimit',100);
 
 
 prefix := '~thor::jdh::';
@@ -69,7 +70,7 @@ t:=TABLE(rawPostings,
              //INTEGER end_pos:=MAX(GROUP,stop)
 							//String t:=term='.';
 						
-							String t:=if(term='.' ,term+term[8],'');
+							unicode t:=if(term='.' ,term+term[8],'');
 							//String t:=if(term='.' and term[2] !='',term+term[2],'')
 					//	i:=i+1;
 						 },

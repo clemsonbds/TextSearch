@@ -1,9 +1,9 @@
 ﻿//Default implementation.  Provides minimal functionality.
 //from me this file give defult values to varibles and interface in Ikeywording file
 IMPORT Std.Uni; //to use lower case or upper case (from me)
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Common.Types;
-IMPORT TextSearch2.Common.Layouts;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Common.Types;
+IMPORT TextSearch.Common.Layouts;
 TermString    := Types.TermString;
 EquivTerm     := Layouts.EquivTerm; //store all record
 Version       := Types.Version;

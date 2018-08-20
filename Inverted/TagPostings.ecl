@@ -1,6 +1,6 @@
 ﻿// Create Tag postings from raw
-IMPORT TextSearch2.Common;
-IMPORT TextSearch2.Inverted;
+IMPORT TextSearch.Common;
+IMPORT TextSearch.Inverted;
 Posting := Inverted.Layouts.RawPosting;
 Tag    := Common.Layouts.TagPosting;
 DataType:= Common.Types.DataType;
